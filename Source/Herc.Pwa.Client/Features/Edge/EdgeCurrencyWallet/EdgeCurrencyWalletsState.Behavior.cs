@@ -28,7 +28,7 @@
       SelectedEdgeCurrencyWalletId = aEdgeCurrencyWalletsState.SelectedEdgeCurrencyWalletId;
     }
 
-    public override object Clone() => new EdgeCurrencyWalletsState(this);
+    //public override object Clone() => new EdgeCurrencyWalletsState(this);
 
     protected override void Initialize() => EdgeCurrencyWallets = new Dictionary<string, EdgeCurrencyWallet>();
   }
