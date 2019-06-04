@@ -26,6 +26,8 @@
   <ItemGroup>
  
     <Folder Include="Properties\" />
+ 
+    <Folder Include="wwwroot\edge\" />
   </ItemGroup>
 
   <ItemGroup>

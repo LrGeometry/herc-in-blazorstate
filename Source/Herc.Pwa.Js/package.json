@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "postinstall": "copy-edge-assets ../Client/wwwroot/edge",
+    "postinstall": "copy-edge-assets ../Herc.Pwa.Client/wwwroot/edge",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
