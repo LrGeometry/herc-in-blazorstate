@@ -39,6 +39,7 @@
         aApplicationBuilder.UseDeveloperExceptionPage();
         aApplicationBuilder.UseBlazorDebugging();
       }
+      aApplicationBuilder.UseClientSideBlazorFiles<Client.Startup>();
 
       aApplicationBuilder.UseRouting();
       aApplicationBuilder.UseEndpoints(aEndpointRouteBuilder =>
@@ -47,7 +48,6 @@
         aEndpointRouteBuilder.MapBlazorHub();
         aEndpointRouteBuilder.MapFallbackToPage("/_Host");
       });
-      aApplicationBuilder.UseBlazor<Client.Startup>();
     }
 
     public void ConfigureServices(IServiceCollection aServiceCollection)

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="$(FluentValidation)" />
+    <PackageReference Include="FluentValidation" Version="8.5.0-preview2" />
     <PackageReference Include="MediatR" Version="$(MediatrVersion)" />
   </ItemGroup>
 
