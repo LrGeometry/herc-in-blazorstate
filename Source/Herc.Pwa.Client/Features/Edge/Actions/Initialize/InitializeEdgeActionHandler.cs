@@ -22,7 +22,7 @@
       public override async Task<EdgeState> Handle(InitailizeEdgeAction aInitailizeEdgeRequest, CancellationToken aCancellationToken)
       {
         await JSRuntime.InvokeAsync<bool>(EdgeInteropMethodNames.EdgeInterop_InitializeEdge);
-        
+
         return EdgeState;
       }
     }

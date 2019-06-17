@@ -7,5 +7,4 @@
     public EdgeWalletInfo EdgeWalletInfo { get; set; }
     protected override void Initialize() => EdgeWalletInfo = null;
   }
-  
 }
