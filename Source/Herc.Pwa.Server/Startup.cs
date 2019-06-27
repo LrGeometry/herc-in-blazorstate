@@ -1,9 +1,8 @@
 ﻿namespace Herc.Pwa.Server
 {
-  using System.Reflection;
+  using BlazorState;
   using AutoMapper;
   using Herc.Pwa.Server.Data;
-  using BlazorState;
   using MediatR;
   using Microsoft.AspNetCore.Builder;
   using Microsoft.AspNetCore.Hosting;
@@ -12,26 +11,31 @@
   using Microsoft.AspNetCore.ResponseCompression;
   using Microsoft.Extensions.DependencyInjection;
   using Microsoft.Extensions.Hosting;
-  using Newtonsoft.Json.Serialization;
   using System.Linq;
-  using System.Net.Http;
+  using System.Reflection;
   //using Shared.Features.Conversion;
-  using FluentValidation;
   //using Server.Services.CryptoCompare.SingleSymbolPrice;
   //using Server.Services.CryptoCompare;
 
   public class Startup
   {
-    public Startup(IConfiguration aConfiguration)
+
+    public Startup(IConfiguration aconfiguration)
     {
-      Configuration = aConfiguration;
+      Configuration = aconfiguration;
     }
 
     public IConfiguration Configuration { get; }
-   
-    public void Configure(IApplicationBuilder aApplicationBuilder, IWebHostEnvironment aWebHostEnvironment)
+
+    public void Configure
+    (
+      IApplicationBuilder aApplicationBuilder,
+      IWebHostEnvironment aWebHostEnvironment
+    )
     {
+      // unsure if below line is needed or not
       aApplicationBuilder.UseHttpsRedirection();
+
       aApplicationBuilder.UseResponseCompression();
 
       if (aWebHostEnvironment.IsDevelopment())
@@ -39,54 +43,58 @@
         aApplicationBuilder.UseDeveloperExceptionPage();
         aApplicationBuilder.UseBlazorDebugging();
       }
-      aApplicationBuilder.UseClientSideBlazorFiles<Client.Startup>();
 
       aApplicationBuilder.UseRouting();
-      aApplicationBuilder.UseEndpoints(aEndpointRouteBuilder =>
-      {
-        aEndpointRouteBuilder.MapControllers(); // We use explicit attribute routing so dont need MapDefaultControllerRoute
-        aEndpointRouteBuilder.MapBlazorHub();
-        aEndpointRouteBuilder.MapFallbackToPage("/_Host");
-      });
+      aApplicationBuilder.UseEndpoints
+      (
+        aEndpointRouteBuilder =>
+        {
+          aEndpointRouteBuilder.MapControllers(); // We use explicit attribute routing so dont need MapDefaultControllerRoute
+          aEndpointRouteBuilder.MapBlazorHub();
+          aEndpointRouteBuilder.MapFallbackToPage("/_Host");
+        }
+      );
+      aApplicationBuilder.UseClientSideBlazorFiles<Client.Startup>();
     }
 
     public void ConfigureServices(IServiceCollection aServiceCollection)
     {
-      aServiceCollection.AddCors(aCorsOptions =>
-      {
-        aCorsOptions.AddPolicy("any",
-            aCorsPolicyBuilder => aCorsPolicyBuilder
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader()
-            .AllowCredentials());
-			 });
-	  aServiceCollection.AddRazorPages();
-	  
-
-      var assemblies = new Assembly[] { typeof(Startup).Assembly };
-      aServiceCollection.AddAutoMapper(assemblies);
-	  aServiceCollection.AddServerSideBlazor();
+   //   aServiceCollection.AddCors(aCorsOptions =>
+   //   {
+   //     aCorsOptions.AddPolicy("any",
+   //         aCorsPolicyBuilder => aCorsPolicyBuilder
+   //         .AllowAnyOrigin()
+   //         .AllowAnyMethod()
+   //         .AllowAnyHeader()
+   //         .AllowCredentials());
+	  //});
+      aServiceCollection.AddRazorPages();
+      aServiceCollection.AddServerSideBlazor();
 
       string connectionString = Configuration.GetConnectionString(nameof(HercPwaDbContext));
       aServiceCollection.AddDbContext<HercPwaDbContext>(options =>
         options.UseSqlServer(connectionString)
       );
 
-      aServiceCollection.AddMvc()
-        .AddNewtonsoftJson();
+      aServiceCollection.AddMvc();
+     
 
-      aServiceCollection.AddResponseCompression(opts =>
-      {
-        opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-                  new[] { "application/octet-stream" });
-      });
+      aServiceCollection.AddResponseCompression
+      (
+        aResponseCompressionOptions =>
+          aResponseCompressionOptions.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat
+          (
+            new[] { "application/octet-stream" }
+          )
+      );
 
-      aServiceCollection.AddBlazorState((a) => a.Assemblies =
-       new Assembly[] {
-         typeof(Startup).GetTypeInfo().Assembly,
-         typeof(Client.Startup).GetTypeInfo().Assembly
-       }
+      aServiceCollection.AddBlazorState
+      (
+        (aOptions) => aOptions.Assemblies =
+          new Assembly[]
+          {
+            typeof(Client.Startup).GetTypeInfo().Assembly
+          }
       );
 
       //aServiceCollection.AddSingleton<HttpClient>();
@@ -100,13 +108,15 @@
       new Client.Startup().ConfigureServices(aServiceCollection);
 
       aServiceCollection.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
-      //aServiceCollection.AddScoped<AnthemGoldHttpClient>();
-      //aServiceCollection.AddScoped<CryptoCompareHttpClient>();
-      //aServiceCollection.Scan(aTypeSourceSelector => aTypeSourceSelector
-      //  .FromAssemblyOf<Startup>()
-      //  .AddClasses()
-      //  .AsSelf()
-      //  .WithScopedLifetime());
+
+      aServiceCollection.Scan
+      (
+        aTypeSourceSelector => aTypeSourceSelector
+          .FromAssemblyOf<Startup>()
+          .AddClasses()
+          .AsSelf()
+          .WithScopedLifetime()
+      );
     }
   }
 }

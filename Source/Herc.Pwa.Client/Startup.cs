@@ -1,18 +1,17 @@
 ﻿namespace Herc.Pwa.Client
 {
-  using Blazor.Extensions.Logging;
+  using Herc.Pwa.Client.Features.Application;
   using BlazorState;
-  using BlazorState.Services;
   using FluentValidation;
   using Herc.Pwa.Client.Services;
   using Herc.Pwa.Client.Components.Shared;
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+  using MediatR;
   using Microsoft.AspNetCore.Components.Builder;
   using Microsoft.Extensions.DependencyInjection;
-  using Nethereum.Util;
+  using System.Reflection;
+  using System.Text.Json.Serialization;
   using BlazorHostedCSharp.Client.Features.ClientLoader;
-  using MediatR;
-  using Microsoft.Extensions.Logging;
 
   public class Startup
   {
@@ -21,19 +20,31 @@
 
     public void ConfigureServices(IServiceCollection aServiceCollection)
     {
-      if (new BlazorHostingLocation().IsClientSide)
-      {
-        aServiceCollection.AddLogging(aLoggingBuilder => aLoggingBuilder
-            .AddBrowserConsole()
-            .SetMinimumLevel(LogLevel.Trace));
-      };
+      aServiceCollection.AddBlazorState
+      (
+        (aOptions) => aOptions.Assemblies =
+          new Assembly[] 
+          {
+            typeof(Startup).GetTypeInfo().Assembly,
+          }
+      );
 	    aServiceCollection.AddSingleton<ColorPalette>();
 	    aServiceCollection.AddSingleton<AmountConverter>();
-	    aServiceCollection.AddSingleton<AddressUtil>();
-	    aServiceCollection.AddScoped(typeof(IValidator<SendAction>), typeof(SendValidator));
-      aServiceCollection.AddBlazorState();
+      	aServiceCollection.AddSingleton
+      (
+        new JsonSerializerOptions
+        {
+          PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        }
+      );
+
+	  aServiceCollection.AddScoped(typeof(IValidator<SendAction>), typeof(SendValidator));
+      //aServiceCollection.AddScoped(typeof(IPipelineBehavior<,>), typeof(EventStreamBehavior<,>));
       aServiceCollection.AddScoped<ClientLoader>();
       aServiceCollection.AddScoped<IClientLoaderConfiguration, ClientLoaderConfiguration>();
+      
+      aServiceCollection.AddTransient<ApplicationState>();
+      //aServiceCollection.AddTransient<EventStreamState>();
     }
   }
 }
