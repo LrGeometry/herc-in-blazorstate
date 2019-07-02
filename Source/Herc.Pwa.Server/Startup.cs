@@ -13,6 +13,8 @@
   using Microsoft.Extensions.Hosting;
   using System.Linq;
   using System.Reflection;
+  using FluentValidation;
+
   //using Shared.Features.Conversion;
   //using Server.Services.CryptoCompare.SingleSymbolPrice;
   //using Server.Services.CryptoCompare;
@@ -69,6 +71,10 @@
    //         .AllowCredentials());
 	  //});
       aServiceCollection.AddRazorPages();
+
+      var assemblies = new Assembly[] { typeof(Startup).Assembly };
+      aServiceCollection.AddAutoMapper(assemblies);
+
       aServiceCollection.AddServerSideBlazor();
 
       string connectionString = Configuration.GetConnectionString(nameof(HercPwaDbContext));
@@ -103,20 +109,20 @@
       //aServiceCollection.AddScoped<IValidator<ConversionRequest>, ConversionRequestValidator>();
       //aServiceCollection.AddScoped<IValidator<PriceRequest>, PriceRequestValidator>();
       //aServiceCollection.AddScoped<IValidator<SingleSymbolPriceRequest>, SingleSymbolPriceRequestValidator>();
-
+      //aServiceCollection.AddScoped<IValidator<>, >();
 
       new Client.Startup().ConfigureServices(aServiceCollection);
 
       aServiceCollection.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
 
-      aServiceCollection.Scan
-      (
-        aTypeSourceSelector => aTypeSourceSelector
-          .FromAssemblyOf<Startup>()
-          .AddClasses()
-          .AsSelf()
-          .WithScopedLifetime()
-      );
+      //aServiceCollection.Scan
+      //(
+      //  aTypeSourceSelector => aTypeSourceSelector
+      //    .FromAssemblyOf<Startup>()
+      //    .AddClasses()
+      //    .AsSelf()
+      //    .WithScopedLifetime()
+      //);
     }
   }
 }

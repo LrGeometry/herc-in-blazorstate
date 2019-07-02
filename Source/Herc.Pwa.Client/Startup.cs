@@ -12,6 +12,9 @@
   using System.Reflection;
   using System.Text.Json.Serialization;
   using BlazorHostedCSharp.Client.Features.ClientLoader;
+  using Nethereum.Util;
+  using Herc.Pwa.Client.Features.Edge;
+  using Herc.Pwa.Client.Features.Edge.EdgeAccount;
 
   public class Startup
   {
@@ -23,14 +26,15 @@
       aServiceCollection.AddBlazorState
       (
         (aOptions) => aOptions.Assemblies =
-          new Assembly[] 
+          new Assembly[]
           {
             typeof(Startup).GetTypeInfo().Assembly,
           }
       );
-	    aServiceCollection.AddSingleton<ColorPalette>();
-	    aServiceCollection.AddSingleton<AmountConverter>();
-      	aServiceCollection.AddSingleton
+      aServiceCollection.AddSingleton<ColorPalette>();
+      aServiceCollection.AddSingleton<AmountConverter>();
+      aServiceCollection.AddSingleton<AddressUtil>();
+      aServiceCollection.AddSingleton
       (
         new JsonSerializerOptions
         {
@@ -38,12 +42,15 @@
         }
       );
 
-	  aServiceCollection.AddScoped(typeof(IValidator<SendAction>), typeof(SendValidator));
+      aServiceCollection.AddScoped<IValidator<SendAction>,SendValidator>();
       //aServiceCollection.AddScoped(typeof(IPipelineBehavior<,>), typeof(EventStreamBehavior<,>));
       aServiceCollection.AddScoped<ClientLoader>();
       aServiceCollection.AddScoped<IClientLoaderConfiguration, ClientLoaderConfiguration>();
-      
+
       aServiceCollection.AddTransient<ApplicationState>();
+      aServiceCollection.AddTransient<EdgeState>();
+      aServiceCollection.AddTransient<EdgeAccountState>();
+      aServiceCollection.AddTransient<EdgeCurrencyWalletsState>();
       //aServiceCollection.AddTransient<EventStreamState>();
     }
   }
