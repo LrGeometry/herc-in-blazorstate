@@ -11,14 +11,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Blazor-State" Version="$(BlazorStateVersion)" />
+    <PackageReference Include="Blazor-State" Version="1.0.0-preview6.19307.2-20190710-124031" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="$(MicrosoftAspNetCoreBlazorVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="$(MicrosoftAspNetCoreBlazorVersion)" PrivateAssets="all" />
-    <PackageReference Include="Nethereum.Util" Version="$(NethereumVersion)" />
+    <PackageReference Include="Nethereum.Util" Version="3.3.0" />
+    <PackageReference Include="Nethereum.Web3" Version="3.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
+    <ItemGroup Condition="'$(TargetFramework)' == 'Nethereum.Util'">
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    </ItemGroup>
   <ItemGroup>
  
+    
+    
     <Folder Include="Properties\" />
   </ItemGroup>
 
