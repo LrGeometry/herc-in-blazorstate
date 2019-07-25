@@ -2,6 +2,7 @@
 {
   using System;
   using System.Reflection;
+  using System.Text.Json.Serialization;
   using Herc.Pwa.Client;
   using Herc.Pwa.Client.Integration.Tests.Infrastructure;
   using BlazorState;
@@ -21,18 +22,16 @@
     public TestFixture(BlazorStateTestServer aBlazorStateTestServer)
     {
       BlazorStateTestServer = aBlazorStateTestServer;
-      IWebAssemblyHostBuilder webAssemblyHostBuilder =
-        BlazorWebAssemblyHost.CreateDefaultBuilder()
-          //.UseBlazorStartup<Startup>()
+      WebAssemblyHostBuilder = BlazorWebAssemblyHost.CreateDefaultBuilder()
           .ConfigureServices(ConfigureServices);
 
-      ServiceProvider = webAssemblyHostBuilder.Build().Services;
     }
 
+    public IWebAssemblyHostBuilder WebAssemblyHostBuilder { get; }
     /// <summary>
     /// This is the ServiceProvider that will be used by the Client
     /// </summary>
-    public IServiceProvider ServiceProvider { get; set; }
+    public IServiceProvider ServiceProvider => WebAssemblyHostBuilder.Build().Services;
 
     private BlazorStateTestServer BlazorStateTestServer { get; }
 
@@ -44,6 +43,12 @@
     {
       aServiceCollection.AddSingleton<AmountConverter>();
       aServiceCollection.AddSingleton(BlazorStateTestServer.CreateClient());
+      aServiceCollection.AddBlazorState
+      (
+        aOptions => aOptions.Assemblies =
+        new Assembly[] { typeof(Startup).GetTypeInfo().Assembly }
+      );
+
       aServiceCollection.AddSingleton<AddressUtil>();
       aServiceCollection.AddScoped(typeof(IValidator<SendAction>), typeof(SendValidator));
 

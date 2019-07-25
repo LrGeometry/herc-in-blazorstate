@@ -166,8 +166,9 @@ namespace Herc.Pwa.Server.Integration.Tests
       });
     }
 
-    public static Task<T> FindAsync<T>(int id)
-        where T : class, IEntity => ExecuteDbContextAsync(db => db.Set<T>().FindAsync(id));
+    // EF Core 3 FindAsync now returns ValueTask not a Task.
+	//public static Task<T> FindAsync<T>(int id)
+    //    where T : class, IEntity => ExecuteDbContextAsync(db => db.Set<T>().FindAsync(id));
 
     public static Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request)
     {
