@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Blazor Hosted Shared Library</Description>
+    <Description>Wallet.Herc.One Api</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="8.5.0-preview2" />
-    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="FluentValidation" Version="$(FluentValidation)" />
+    <PackageReference Include="MediatR" Version="$(MediatrVersion)" />
   </ItemGroup>
 
 </Project>

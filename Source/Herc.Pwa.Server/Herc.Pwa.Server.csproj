@@ -1,35 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <Description>Blazor Hosted Server</Description>
+    <Description>Wallet.Herc.One Server</Description>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <RestoreAdditionalProjectSources>
-      https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json;
-      https://dotnet.myget.org/F/blazor-dev/api/v3/index.json;
-    </RestoreAdditionalProjectSources>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="8.1.1" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
-    <PackageReference Include="BuildWebCompiler" Version="1.12.394" />
-    <PackageReference Include="FluentValidation" Version="8.5.0-preview2" />
-    <PackageReference Include="MediatR" Version="7.0.0" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="AutoMapper" Version="$(AutoMapperVersion)" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="$(AutoMapperExtensionsMicrosoftDependencyInjectionVersion)" />
+    <PackageReference Include="BuildWebCompiler" Version="$(BuildWebCompilerVersion)" />
+    <PackageReference Include="FluentValidation" Version="$(FluentValidation)" />
+    <PackageReference Include="MediatR" Version="$(MediatrVersion)" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="$(MediatrExtensionsMicrosoftDependencyInjectionVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Server" Version="$(MicrosoftAspNetCoreBlazorVersion)" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0-preview6.19307.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0-preview6.19304.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0-preview6.19304.10">
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(MicrosoftAspNetCoreMvcNewtonsoftJsonVersion)" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(MicrosoftEntityFrameworkCoreSqlServerVersion)" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="$(MicrosoftEntityFrameworkCoreToolsVersion)">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Nethereum.Util" Version="$(NethereumVersion)" />
-    <PackageReference Include="Nethereum.Web3" Version="$(NethereumVersion)" />
+    <PackageReference Include="Nethereum.Util" Version="$(NethereumUtilVersion)" />
+    <PackageReference Include="Nethereum.Web3" Version="$(NethereumWeb3VersionVersion)" />
     <PackageReference Include="Scrutor" Version="$(ScrutorVersion)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'Nethereum.Util'">
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="NethereumUtilVersion" />
   </ItemGroup>
   
   <ItemGroup>

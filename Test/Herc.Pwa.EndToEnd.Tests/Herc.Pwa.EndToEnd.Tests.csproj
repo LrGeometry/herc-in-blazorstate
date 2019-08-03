@@ -2,17 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <DotNetCliToolReference Include="Fixie.Console" Version="$(FixieConsoleVersion)" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Fixie" Version="$(FixieVersion)" />
-    <PackageReference Include="Respawn" Version="3.2.0" />
+    <PackageReference Include="Respawn" Version="$(RespawnVersion)" />
     <PackageReference Include="Selenium.Support" Version="$(SeleniumSupportVersion)" />
     <PackageReference Include="Selenium.WebDriver" Version="$(SeleniumSupportVersion)" />
     <PackageReference Include="Shouldly" Version="$(ShouldlyVersion)" />
-    <DotNetCliToolReference Include="Fixie.Console" Version="$(FixieConsoleVersion)" />
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
