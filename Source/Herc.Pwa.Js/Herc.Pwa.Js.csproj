@@ -64,7 +64,7 @@
     <WebpackInputs Remove="source\Edge\TypeDefinitions\Subscriber.ts" />
   </ItemGroup>
 
-  <Target Name="EnsureNpmRestored" Condition="!Exists('node_modules')">
+  <Target Name="EnsureNpmRestored">
     <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
     <Exec Command="npm install" />
   </Target>
