@@ -1,7 +1,9 @@
 {
   "name": "blazorherc",
   "version": "0.0.1",
-  "description": "",
+  "description": "The Javascript used with Wallet.",
+  "repository": "https://github.com/HERCone/herc-in-blazorstate.git",
+  "license": "Unlicense",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
@@ -17,6 +19,6 @@
   },
   "dependencies": {
     "edge-login-ui-web": "0.5.18",
-    "edge-core-js": "0.16.5"
+    "edge-core-js": "0.16.6"
   }
 }
