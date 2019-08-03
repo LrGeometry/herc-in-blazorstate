@@ -61,15 +61,15 @@
 
     public void ConfigureServices(IServiceCollection aServiceCollection)
     {
-   //   aServiceCollection.AddCors(aCorsOptions =>
-   //   {
-   //     aCorsOptions.AddPolicy("any",
-   //         aCorsPolicyBuilder => aCorsPolicyBuilder
-   //         .AllowAnyOrigin()
-   //         .AllowAnyMethod()
-   //         .AllowAnyHeader()
-   //         .AllowCredentials());
-	  //});
+      //   aServiceCollection.AddCors(aCorsOptions =>
+      //   {
+      //     aCorsOptions.AddPolicy("any",
+      //         aCorsPolicyBuilder => aCorsPolicyBuilder
+      //         .AllowAnyOrigin()
+      //         .AllowAnyMethod()
+      //         .AllowAnyHeader()
+      //         .AllowCredentials());
+      //});
       aServiceCollection.AddRazorPages();
 
       var assemblies = new Assembly[] { typeof(Startup).Assembly };
@@ -83,7 +83,7 @@
       );
 
       aServiceCollection.AddMvc();
-     
+
 
       aServiceCollection.AddResponseCompression
       (

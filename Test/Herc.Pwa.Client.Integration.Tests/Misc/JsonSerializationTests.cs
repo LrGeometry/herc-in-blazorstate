@@ -2,14 +2,14 @@
 {
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
   using System;
-  using System.Text.Json.Serialization;
+  using System.Text.Json;
 
   class JsonSerializationTests
   {
     public void GoodSingle()
     {
       string json = System.IO.File.ReadAllText(@".\TestData\SerializationTests\GoodSingle.json");
-      UpdateEdgeCurrencyWalletAction updateEdgeCurrencyWalletAction = JsonSerializer.Parse<UpdateEdgeCurrencyWalletAction>(json);
+      UpdateEdgeCurrencyWalletAction updateEdgeCurrencyWalletAction = JsonSerializer.Deserialize<UpdateEdgeCurrencyWalletAction>(json);
     }
 
     // Skip: By making private will skip the test
@@ -19,7 +19,7 @@
       // But given we don't care about the field we now remove it prior to serialization
       string currentDirectory = Environment.CurrentDirectory;
       string json = System.IO.File.ReadAllText(@".\TestData\SerializationTests\BadSingle.json");
-      UpdateEdgeCurrencyWalletAction updateEdgeCurrencyWalletAction = JsonSerializer.Parse<UpdateEdgeCurrencyWalletAction>(json);
+      UpdateEdgeCurrencyWalletAction updateEdgeCurrencyWalletAction = JsonSerializer.Deserialize<UpdateEdgeCurrencyWalletAction>(json);
     }
 
   }
