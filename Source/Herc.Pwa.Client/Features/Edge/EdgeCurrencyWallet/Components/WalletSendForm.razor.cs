@@ -1,14 +1,12 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.Components
+﻿namespace Herc.Pwa.Client.Features.Edge
 {
   using System;
   using System.Linq;
-  using System.Net;
   using System.Threading.Tasks;
   using BlazorState.Features.Routing;
   using FluentValidation;
   using FluentValidation.Results;
   using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
   using Herc.Pwa.Client.Pages;
   using Herc.Pwa.Client.Services;
   using Herc.Pwa.Shared;
@@ -25,9 +23,8 @@
     }
 
     [Inject] private AmountConverter AmountConverter { get; set; }
-    private string EdgeCurrencyWalletId => WebUtility.UrlDecode(EdgeCurrencyWalletEncodedId);
     [Inject] private IValidator<SendAction> SendValidator { get; set; }
-    [Parameter] protected string EdgeCurrencyWalletEncodedId { get; set; }
+    [Parameter] protected string EdgeCurrencyWalletId { get; set; }
     protected FormDataClass FormData => LazyFormData.Value;
     protected FormValidatorClass FormValidator => new FormValidatorClass(SendValidator);
     protected string Balance => string.IsNullOrEmpty(FormData.SendAction.CurrencyCode) ? "" : EdgeCurrencyWallet.Balances[FormData.SendAction.CurrencyCode];

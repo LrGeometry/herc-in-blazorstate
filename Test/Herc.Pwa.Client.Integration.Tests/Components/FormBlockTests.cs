@@ -1,15 +1,15 @@
-﻿using System;
-using BlazorState;
-using BlazorState.Integration.Tests.Infrastructure;
-using Herc.Pwa.Client.Components;
-using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-using Herc.Pwa.Client.Services;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using Shouldly;
-
-namespace Herc.Pwa.Client.Integration.Tests.Components
+﻿namespace Herc.Pwa.Client.Integration.Tests.Components
 {
+  using System;
+  using BlazorState;
+  using BlazorState.Integration.Tests.Infrastructure;
+  using Herc.Pwa.Client.Components;
+  using Herc.Pwa.Client.Features.Edge;
+  using Herc.Pwa.Client.Services;
+  using MediatR;
+  using Microsoft.Extensions.DependencyInjection;
+  using Shouldly;
+
   public class FormBlockTestsSkip
   {
     public FormBlockTestsSkip(TestFixture aTestFixture)

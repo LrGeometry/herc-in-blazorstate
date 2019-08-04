@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Herc.Pwa.Client.Features.Edge.State;
+using Herc.Pwa.Client.Features.Edge;
 using Shouldly;
 
 namespace Herc.Pwa.Client.Integration.Tests.Features.Edge.State

@@ -3,7 +3,7 @@
   using System.Collections.Generic;
   using System.Linq;
   using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+  using Herc.Pwa.Client.Features.Edge;
 
   public class WalletsPageModel : BaseComponent
   {

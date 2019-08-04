@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using AnyClone;
-using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-using Shouldly;
-
-namespace Herc.Pwa.Client.Integration.Tests.Features.Edge
+﻿namespace Herc.Pwa.Client.Integration.Tests.Features.Edge
 {
+  using System.Collections.Generic;
+  using AnyClone;
+  using Herc.Pwa.Client.Features.Edge;
+  using Shouldly;
+
   public class EdgeCurrencyWalletsStateUnitTests
   {
     /// <summary>

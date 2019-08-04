@@ -1,7 +1,7 @@
 namespace Herc.Pwa.Client.Features.Edge.Components
 {
   using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge.State;
+  using Herc.Pwa.Client.Features.Edge;
   using Microsoft.AspNetCore.Components;
   using System.Collections.Generic;
   using System.Linq;
