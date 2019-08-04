@@ -1,0 +1,1 @@
+dotnet run --project .\Source\Herc.Pwa.Server\
