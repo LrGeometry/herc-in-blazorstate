@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Herc.Pwa.Client.Features.Edge
 {
   using System;
   using System.Threading;
@@ -12,13 +12,9 @@
 
   public class SendHandler : BaseHandler<SendAction, EdgeCurrencyWalletsState>
   {
-    public SendHandler(IStore aStore, IMediator aMediator) : base(aStore)
-    {
-      Mediator = aMediator;
-    }
+    public SendHandler(IStore aStore) : base(aStore) { }
 
-    private IMediator Mediator { get; }
-    [Inject] IJSRuntime JSRuntime { get; }
+    [Inject] IJSRuntime JSRuntime { get; set; }
     public override async Task<EdgeCurrencyWalletsState> Handle(SendAction aSendAction, CancellationToken aCancellationToken)
     {
       SendDto sendDto = MapSendActionToSendDto(aSendAction);

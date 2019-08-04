@@ -7,7 +7,7 @@
   using FluentValidation;
   using FluentValidation.Results;
   using FluentValidation.Validators;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+  using Herc.Pwa.Client.Features.Edge;
   using Herc.Pwa.Shared.Enumerations.FeeOption;
   using MediatR;
   using Microsoft.Extensions.DependencyInjection;

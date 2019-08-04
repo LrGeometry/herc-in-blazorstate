@@ -5,7 +5,7 @@
 
   public class WalletSendPageModel : BaseComponent
   {
-    [Parameter] protected string EdgeCurrencyWalletEncodedId { get; set; }
-    public static string Route(string aEdgeCurrencyWalletEncodedId) => $"/wallet/{aEdgeCurrencyWalletEncodedId}/Send";
+    [Parameter] protected string EdgeCurrencyWalletId { get; set; }
+    public static string Route(string aEdgeCurrencyWalletId) => $"/wallet/{aEdgeCurrencyWalletId}/Send";
   }
 }

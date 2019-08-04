@@ -2,11 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <RestoreAdditionalProjectSources>
-      https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json;
-      https://dotnet.myget.org/F/blazor-dev/api/v3/index.json;
-    </RestoreAdditionalProjectSources>
-    <Description>Blazor Hosted Client</Description>
+    <Description>Wallet.Herc.One Client</Description>
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
 
@@ -14,18 +10,15 @@
     <PackageReference Include="Blazor-State" Version="$(BlazorStateVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="$(MicrosoftAspNetCoreBlazorVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="$(MicrosoftAspNetCoreBlazorVersion)" PrivateAssets="all" />
-    <PackageReference Include="Nethereum.Util" Version="3.3.0" />
-    <PackageReference Include="Nethereum.Web3" Version="3.3.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Nethereum.Util" Version="$(NethereumUtilVersion)" />
+    <PackageReference Include="Nethereum.Web3" Version="$(NethereumWeb3VersionVersion)" />
+    <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftJsonVersion)" />
   </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'Nethereum.Util'">
-      <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'Nethereum.Util'">
+    <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftJsonVersion)" />
+  </ItemGroup>
   <ItemGroup>
- 
-    
-    
     <Folder Include="Properties\" />
   </ItemGroup>
 

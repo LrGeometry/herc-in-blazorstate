@@ -1,7 +1,7 @@
 ﻿namespace Herc.Pwa.Client.Features.Edge.Components.WalletList
 {
   using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+  using Herc.Pwa.Client.Features.Edge;
   using Microsoft.AspNetCore.Components;
 
   public class WalletItemModel : BaseComponent

@@ -1,13 +1,13 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Herc.Pwa.Client.Features.Edge
 {
   using System;
   using System.Collections.Generic;
   using System.Linq;
   using System.Net;
-  using Herc.Pwa.Client.Features.Edge.State;
 
   public class EdgeCurrencyWallet : ICloneable
   {
+    private string _SelectedCurrencyCode;
 
     public EdgeCurrencyWallet()
     {
@@ -17,19 +17,18 @@
     }
 
     public Dictionary<string, string> Balances { get; set; }
+    public List<EdgeTransaction> EdgeTransactions { get; set; }
+    public string EncodedId => Id;
     public string FiatCurrencyCode { get; set; }
     public string Id { get; set; }
     public Dictionary<string, string> Keys { get; set; }
     public string Name { get; set; }
-    public List<EdgeTransaction> EdgeTransactions { get; set; }
-    private string _SelectedCurrencyCode;
 
     public string SelectedCurrencyCode
     {
       get => _SelectedCurrencyCode ?? Balances?.Keys.FirstOrDefault();
       set => _SelectedCurrencyCode = value;
     }
-    public string EncodedId => WebUtility.UrlEncode(Id);
 
     public object Clone()
     {

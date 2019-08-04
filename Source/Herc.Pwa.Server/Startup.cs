@@ -61,29 +61,32 @@
 
     public void ConfigureServices(IServiceCollection aServiceCollection)
     {
-   //   aServiceCollection.AddCors(aCorsOptions =>
-   //   {
-   //     aCorsOptions.AddPolicy("any",
-   //         aCorsPolicyBuilder => aCorsPolicyBuilder
-   //         .AllowAnyOrigin()
-   //         .AllowAnyMethod()
-   //         .AllowAnyHeader()
-   //         .AllowCredentials());
-	  //});
+      //   aServiceCollection.AddCors(aCorsOptions =>
+      //   {
+      //     aCorsOptions.AddPolicy("any",
+      //         aCorsPolicyBuilder => aCorsPolicyBuilder
+      //         .AllowAnyOrigin()
+      //         .AllowAnyMethod()
+      //         .AllowAnyHeader()
+      //         .AllowCredentials());
+      //});
       aServiceCollection.AddRazorPages();
 
       var assemblies = new Assembly[] { typeof(Startup).Assembly };
       aServiceCollection.AddAutoMapper(assemblies);
 
-      aServiceCollection.AddServerSideBlazor();
+      aServiceCollection
+        .AddServerSideBlazor()
+        .AddHubOptions(aHubOptions => aHubOptions.MaximumReceiveMessageSize = 102400000);
 
       string connectionString = Configuration.GetConnectionString(nameof(HercPwaDbContext));
-      aServiceCollection.AddDbContext<HercPwaDbContext>(options =>
-        options.UseSqlServer(connectionString)
+      aServiceCollection.AddDbContext<HercPwaDbContext>
+      (
+        options => options.UseSqlServer(connectionString)
       );
 
       aServiceCollection.AddMvc();
-     
+
 
       aServiceCollection.AddResponseCompression
       (
@@ -92,15 +95,6 @@
           (
             new[] { "application/octet-stream" }
           )
-      );
-
-      aServiceCollection.AddBlazorState
-      (
-        (aOptions) => aOptions.Assemblies =
-          new Assembly[]
-          {
-            typeof(Client.Startup).GetTypeInfo().Assembly
-          }
       );
 
       //aServiceCollection.AddSingleton<HttpClient>();

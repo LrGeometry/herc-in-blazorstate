@@ -1,5 +1,5 @@
 ﻿
-namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
+namespace Herc.Pwa.Client.Features.Edge
 {
   using System;
   using System.Collections.Generic;
@@ -7,7 +7,6 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
   using System.Threading.Tasks;
   using BlazorState;
   using Herc.Pwa.Client.Features.Base;
-  using Herc.Pwa.Client.Features.Edge.State;
   using MediatR;
 
   public class UpdateEdgeCurrencyWalletHandler : BaseHandler<UpdateEdgeCurrencyWalletAction, EdgeCurrencyWalletsState>
@@ -30,6 +29,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 
     private void MapActionToState(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction)
     {
+      Console.WriteLine($"aUpdateEdgeCurrencyWalletAction.Id:{aUpdateEdgeCurrencyWalletAction.Id}");
       if (!EdgeCurrencyWalletsState.EdgeCurrencyWallets.ContainsKey(aUpdateEdgeCurrencyWalletAction.Id))
       {
         EdgeCurrencyWalletsState.EdgeCurrencyWallets[aUpdateEdgeCurrencyWalletAction.Id] = new EdgeCurrencyWallet();

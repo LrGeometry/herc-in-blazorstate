@@ -6,10 +6,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
   using BlazorState;
   using Herc.Pwa.Client.Features.Base;
   using Herc.Pwa.Client.Features.Edge.Dtos;
-  using Herc.Pwa.Client.Features.Edge.DTOs;
   using Herc.Pwa.Client.Features.Edge.EdgeAccount;
-  using MediatR;
-  using Microsoft.AspNetCore.Components;
   using Microsoft.JSInterop;
 
   public class ChangePinHandler : BaseHandler<ChangePinAction, EdgeAccountState>

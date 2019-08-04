@@ -5,12 +5,10 @@
   using FluentValidation;
   using Herc.Pwa.Client.Services;
   using Herc.Pwa.Client.Components.Shared;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-  using MediatR;
   using Microsoft.AspNetCore.Components.Builder;
   using Microsoft.Extensions.DependencyInjection;
   using System.Reflection;
-  using System.Text.Json.Serialization;
+  using System.Text.Json;
   using BlazorHostedCSharp.Client.Features.ClientLoader;
   using Nethereum.Util;
   using Herc.Pwa.Client.Features.Edge;
@@ -25,10 +23,14 @@
     {
       aServiceCollection.AddBlazorState
       (
-        (aOptions) => aOptions.Assemblies =
-          new Assembly[]
+        (aOptions) =>
           {
-            typeof(Startup).GetTypeInfo().Assembly,
+            aOptions.UseReduxDevToolsBehavior = false;
+            aOptions.Assemblies =
+              new Assembly[]
+              {
+                typeof(Startup).GetTypeInfo().Assembly,
+              };
           }
       );
       aServiceCollection.AddSingleton<ColorPalette>();
@@ -42,8 +44,7 @@
         }
       );
 
-      aServiceCollection.AddScoped<IValidator<SendAction>,SendValidator>();
-      //aServiceCollection.AddScoped(typeof(IPipelineBehavior<,>), typeof(EventStreamBehavior<,>));
+      aServiceCollection.AddScoped<IValidator<SendAction>, SendValidator>();
       aServiceCollection.AddScoped<ClientLoader>();
       aServiceCollection.AddScoped<IClientLoaderConfiguration, ClientLoaderConfiguration>();
 
@@ -51,7 +52,6 @@
       aServiceCollection.AddTransient<EdgeState>();
       aServiceCollection.AddTransient<EdgeAccountState>();
       aServiceCollection.AddTransient<EdgeCurrencyWalletsState>();
-      //aServiceCollection.AddTransient<EventStreamState>();
     }
   }
 }

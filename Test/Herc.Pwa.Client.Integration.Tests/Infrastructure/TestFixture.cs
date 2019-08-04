@@ -2,7 +2,6 @@
 {
   using System;
   using System.Reflection;
-  using System.Text.Json.Serialization;
   using Herc.Pwa.Client;
   using Herc.Pwa.Client.Integration.Tests.Infrastructure;
   using BlazorState;
@@ -11,7 +10,7 @@
   using Herc.Pwa.Client.Services;
   using Nethereum.Util;
   using FluentValidation;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+  using Herc.Pwa.Client.Features.Edge;
 
   /// <summary>
   /// A known starting state(baseline) for all tests.
