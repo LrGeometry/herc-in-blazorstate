@@ -35,12 +35,11 @@
     <MicrosoftEntityFrameworkCoreSqlServerVersion>3.0.0-preview7.19362.6</MicrosoftEntityFrameworkCoreSqlServerVersion>
     <MicrosoftEntityFrameworkCoreToolsVersion>3.0.0-preview7.19362.6</MicrosoftEntityFrameworkCoreToolsVersion>
 
-
     <AutoMapperVersion>8.1.1</AutoMapperVersion>
     <AutoMapperExtensionsMicrosoftDependencyInjectionVersion>6.1.1</AutoMapperExtensionsMicrosoftDependencyInjectionVersion>
     <BuildWebCompilerVersion>1.12.405</BuildWebCompilerVersion>
     <BlazorExtensionsLoggingVersion>0.1.11</BlazorExtensionsLoggingVersion>
-    <BlazorStateVersion>1.0.0-preview7.19365.7-20190731-164341</BlazorStateVersion>
+    <BlazorStateVersion>1.0.0-preview7.19365.7-20190804-161342</BlazorStateVersion>
     <FixieConsoleVersion>2.1.1</FixieConsoleVersion>
     <FixieVersion>2.1.1</FixieVersion>
     <FluentValidation>8.4.0</FluentValidation>
