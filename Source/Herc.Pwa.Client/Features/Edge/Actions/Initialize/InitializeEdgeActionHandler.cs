@@ -4,7 +4,6 @@
   using System.Threading.Tasks;
   using BlazorState;
   using Herc.Pwa.Client.Features.Base;
-  using Microsoft.AspNetCore.Components;
   using Microsoft.JSInterop;
 
   public partial class EdgeState
