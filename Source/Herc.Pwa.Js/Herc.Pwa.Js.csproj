@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
     <IsPackable>false</IsPackable>
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
@@ -69,13 +68,16 @@
     <Exec Command="npm install" />
   </Target>
 
-  <Target Name="RunWebpack" AfterTargets="ResolveReferences" Inputs="@(WebpackInputs)" Outputs="dist\clientjs.js" DependsOnTargets="EnsureNpmRestored">
+  <PropertyGroup>
+    <JavascriptOutputFile>client.js</JavascriptOutputFile>
+  </PropertyGroup>
+
+  <Target Name="RunWebpack" AfterTargets="ResolveReferences" Inputs="@(WebpackInputs)" Outputs="dist\$(JavascriptOutputFile)" DependsOnTargets="EnsureNpmRestored">
     <RemoveDir Directories="dist" />
     <Exec Command="npm run build" />
     <ItemGroup>
-      <EmbeddedResource Include="dist\blazorherc.js" LogicalName="blazor:js:dist\blazorherc.js" />
+      <EmbeddedResource Include="dist\$(JavascriptOutputFile)" LogicalName="blazor:js:$(JavascriptOutputFile)" />
     </ItemGroup>
   </Target>
 
-  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 </Project>
