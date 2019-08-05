@@ -47,7 +47,7 @@
     <MediatrVersion>7.0.0</MediatrVersion>
     <MoqVersion>4.12.0</MoqVersion>
     <NethereumUtilVersion>3.4.0</NethereumUtilVersion>
-    <NethereumWeb3VersionVersion>3.4.0</NethereumWeb3VersionVersion>
+    <NethereumWeb3Version>3.4.0</NethereumWeb3Version>
     <NewtonsoftJsonVersion>12.0.2</NewtonsoftJsonVersion>
     <RespawnVersion>3.2.0</RespawnVersion>
     <ScrutorVersion>3.0.2</ScrutorVersion>

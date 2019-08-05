@@ -11,7 +11,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="$(MicrosoftAspNetCoreBlazorVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="$(MicrosoftAspNetCoreBlazorVersion)" PrivateAssets="all" />
     <PackageReference Include="Nethereum.Util" Version="$(NethereumUtilVersion)" />
-    <PackageReference Include="Nethereum.Web3" Version="$(NethereumWeb3VersionVersion)" />
+    <PackageReference Include="Nethereum.Web3" Version="$(NethereumWeb3Version)" />
     <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftJsonVersion)" />
   </ItemGroup>
 

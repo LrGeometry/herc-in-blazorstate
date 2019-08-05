@@ -19,7 +19,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Nethereum.Util" Version="$(NethereumUtilVersion)" />
-    <PackageReference Include="Nethereum.Web3" Version="$(NethereumWeb3VersionVersion)" />
+    <PackageReference Include="Nethereum.Web3" Version="$(NethereumWeb3Version)" />
     <PackageReference Include="Scrutor" Version="$(ScrutorVersion)" />
   </ItemGroup>
 
