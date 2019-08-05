@@ -13,11 +13,11 @@
   using Herc.Pwa.Shared.Enumerations.FeeOption;
   using Microsoft.AspNetCore.Components;
 
-  public class WalletSendFormModel : BaseComponent
+  public class WalletSendFormBase : BaseComponent
   {
     private readonly Lazy<FormDataClass> LazyFormData;
 
-    public WalletSendFormModel()
+    public WalletSendFormBase()
     {
       LazyFormData = new Lazy<FormDataClass>(() => new FormDataClass(AmountConverter));
     }
@@ -52,7 +52,7 @@
       {
         await Mediator.Send(FormData.SendAction);
 
-        await Mediator.Send(new ChangeRouteAction { NewRoute = WalletPageModel.Route });
+        await Mediator.Send(new ChangeRouteAction { NewRoute = WalletPageBase.Route });
       }
     }
 

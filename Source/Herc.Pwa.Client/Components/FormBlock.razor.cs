@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Herc.Pwa.Client.Components
 {
-  public class FormBlockModel<T> : BaseComponent
+  public class FormBlockBase<T> : BaseComponent
   {
     [Parameter] protected string Model { get; set; }
     [Parameter] protected Action<string> ModelChanged { get; set; }

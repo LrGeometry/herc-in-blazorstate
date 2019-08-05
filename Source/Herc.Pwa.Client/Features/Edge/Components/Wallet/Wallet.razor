@@ -1,4 +1,4 @@
-﻿@inherits WalletModel
+﻿@inherits WalletBase
 @using Herc.Pwa.Client.Pages
 @using Herc.Pwa.Client.Features.Edge.Components
 
@@ -27,11 +27,11 @@
   <br />
 
   <div class="d-flex flex-column align-items-center mt-2">
-    <NavLink class="btn btn-primary btn-dark" href="@WalletSendPageModel.Route(EdgeCurrencyWallet.EncodedId)">
+    <NavLink class="btn btn-primary btn-dark" href="@WalletSendPageBase.Route(EdgeCurrencyWallet.EncodedId)">
       <span class="oi oi-data-transfer-upload" aria-hidden="true"></span> Send
     </NavLink>
     <div style="height: 1rem"></div>
-    <NavLink class="btn btn-primary btn-dark" href="@WalletReceivePageModel.Route(EdgeCurrencyWallet.EncodedId)">
+    <NavLink class="btn btn-primary btn-dark" href="@WalletReceivePageBase.Route(EdgeCurrencyWallet.EncodedId)">
       <span class="oi oi-data-transfer-download" aria-hidden="true"></span> Receive
     </NavLink>
   </div>

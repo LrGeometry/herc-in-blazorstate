@@ -1,6 +1,5 @@
 ﻿namespace Herc.Pwa.Client.Pages
 {
-  using System.Net;
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Clipboard;
@@ -9,7 +8,7 @@
   using Microsoft.AspNetCore.Components;
   using Microsoft.JSInterop;
 
-  public class WalletReceivePageModel : BaseComponent
+  public class WalletReceivePageBase : BaseComponent
   {
     private EdgeCurrencyWallet EdgeCurrencyWallet => EdgeCurrencyWalletsState.EdgeCurrencyWallets[EdgeCurrencyWalletId];
     [Parameter] protected string EdgeCurrencyWalletId { get; set; }

@@ -4,7 +4,7 @@
   using Herc.Pwa.Client.Features.Edge;
   using Microsoft.AspNetCore.Components;
 
-  public class WalletModel : BaseComponent
+  public class WalletBase : BaseComponent
   {
     [Parameter] protected EdgeCurrencyWallet EdgeCurrencyWallet { get; set; }
 

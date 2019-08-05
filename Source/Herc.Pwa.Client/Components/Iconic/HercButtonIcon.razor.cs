@@ -1,7 +1,7 @@
 ﻿namespace Herc.Pwa.Client.Components.Iconic
 {
   using Microsoft.AspNetCore.Components;
-  public class HercButtonIconModel : BaseComponent
+  public class HercButtonIconBase : BaseComponent
   {
 
     [Parameter] protected string FillColor { get; set; } = "purple";

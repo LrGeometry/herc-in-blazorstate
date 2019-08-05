@@ -2,7 +2,7 @@
 {
   using System.Net;
   using Microsoft.AspNetCore.Components;
-  public class QrCodeModel : BaseComponent
+  public class QrCodeBase : BaseComponent
   {
     [Parameter] protected string Text { get; set; }
     [Parameter] protected string Width { get; set; } = "128";

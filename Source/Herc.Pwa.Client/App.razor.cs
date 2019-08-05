@@ -8,7 +8,7 @@
   using BlazorHostedCSharp.Client.Features.ClientLoader;
   using System;
 
-  public class AppModel : ComponentBase
+  public class AppBase : ComponentBase
   {
     [Inject] private JsonRequestHandler JsonRequestHandler { get; set; }
     //[Inject] private ReduxDevToolsInterop ReduxDevToolsInterop { get; set; }

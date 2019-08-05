@@ -5,7 +5,7 @@
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge;
 
-  public class WalletsPageModel : BaseComponent
+  public class WalletsPageBase : BaseComponent
   {
     public const string Route = "wallets";
     public List<EdgeCurrencyWallet> EdgeCurrencyWallets => EdgeCurrencyWalletsState.EdgeCurrencyWallets.Values.ToList();

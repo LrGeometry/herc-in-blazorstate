@@ -5,7 +5,7 @@
   using FluentValidation.Results;
   using Microsoft.AspNetCore.Components;
 
-  public class ValidationModel : BaseComponent
+  public class ValidationBase : BaseComponent
   {
     [Parameter] protected ValidationResult ValidationResult { get; set; }
 

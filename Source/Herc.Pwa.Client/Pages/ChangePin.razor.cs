@@ -7,7 +7,7 @@ namespace Herc.Pwa.Client.Pages
   using Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin;
 
 
-  public class ChangePinModel : BaseComponent
+  public class ChangePinBase : BaseComponent
   {
     public const string Route = "/changePin";
     public string NewPin { get; set; }
@@ -34,7 +34,7 @@ namespace Herc.Pwa.Client.Pages
         // Upon successful resolve of the above function pop the modal here
         // @showModal = true
         Console.WriteLine("Change the Route to the Home Page.");
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeModel.Route });
+        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeBase.Route });
       }
 
     }
