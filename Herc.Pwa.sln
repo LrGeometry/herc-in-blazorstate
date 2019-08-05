@@ -10,9 +10,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Herc.Pwa.Shared", "Source\H
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{171494B4-2196-44C6-B3F2-CE6BB2A1F0E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Herc.Pwa.Server.Integration.Tests", "Test\Herc.Pwa.Server.Integration.Tests\Herc.Pwa.Server.Integration.Tests.csproj", "{0859C2E7-87FF-4E6A-AD5A-AB1AA2E4505F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Herc.Pwa.Server.Integration.Tests", "Tests\Herc.Pwa.Server.Integration.Tests\Herc.Pwa.Server.Integration.Tests.csproj", "{0859C2E7-87FF-4E6A-AD5A-AB1AA2E4505F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Herc.Pwa.Client.Integration.Tests", "Test\Herc.Pwa.Client.Integration.Tests\Herc.Pwa.Client.Integration.Tests.csproj", "{714D7365-A43E-44D6-BF6F-2FFEE0289CDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Herc.Pwa.Client.Integration.Tests", "Tests\Herc.Pwa.Client.Integration.Tests\Herc.Pwa.Client.Integration.Tests.csproj", "{714D7365-A43E-44D6-BF6F-2FFEE0289CDA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09C8F7C9-1C3C-4C55-9636-1E6DB7962F33}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Herc.Pwa.Js", "Source\Herc.Pwa.Js\Herc.Pwa.Js.csproj", "{D4A0E91E-3C71-405E-A428-AEBDD52A5D5D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Herc.Pwa.EndToEnd.Tests", "Test\Herc.Pwa.EndToEnd.Tests\Herc.Pwa.EndToEnd.Tests.csproj", "{7FEFF4BA-A4FD-4CAE-A405-F562DE92AEF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Herc.Pwa.EndToEnd.Tests", "Tests\Herc.Pwa.EndToEnd.Tests\Herc.Pwa.EndToEnd.Tests.csproj", "{7FEFF4BA-A4FD-4CAE-A405-F562DE92AEF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
