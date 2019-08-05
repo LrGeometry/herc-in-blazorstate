@@ -5,7 +5,7 @@
   using Herc.Pwa.Client.Pages;
   using Microsoft.AspNetCore.Components;
 
-  public class HercLayoutModel : BaseComponent, IComponent
+  public class HercLayoutBase : BaseComponent, IComponent
   {
 
     [Parameter] protected RenderFragment Body { get; set; }
@@ -16,7 +16,7 @@
       if (!EdgeAccountState.LoggedIn)
       {
         // Route to Edge to Login
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = EdgePageModel.Route });
+        _ = await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = EdgePageBase.Route });
       }
     }
   }

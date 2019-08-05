@@ -4,7 +4,7 @@
   using Herc.Pwa.Client.Services;
   using Microsoft.AspNetCore.Components;
 
-  public class BalanceModel : BaseComponent
+  public class BalanceBase : BaseComponent
   {
     [Parameter] protected string Balance { get; set; }
 

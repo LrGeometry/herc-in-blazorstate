@@ -5,7 +5,7 @@
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge.EdgeAccount;
 
-  public class LogoutPageModel : BaseComponent
+  public class LogoutPageBase : BaseComponent
   {
     public const string Route = "logout";
 
@@ -13,7 +13,7 @@
     {
       await Mediator.Send(new LogoutAction());
       Console.WriteLine("Change the Route to the Home Page.");
-      await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeModel.Route });
+      await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeBase.Route });
     }
   }
 }

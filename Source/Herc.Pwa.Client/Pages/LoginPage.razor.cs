@@ -3,7 +3,7 @@
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
 
-  public class LoginPageModel : BaseComponent
+  public class LoginPageBase : BaseComponent
   {
     public const string Route = "Login";
 
@@ -15,35 +15,12 @@
       if (EdgeAccountState.LoggedIn)
       {
           // Route them to Home Page
-          await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeModel.Route });
+          await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeBase.Route });
       }
       else
       {
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = EdgePageModel.Route });
+        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = EdgePageBase.Route });
       }
     }
-
-    //protected override void OnInit()
-    //{
-    //  // Are we in the proper state for this page?
-    //  if (EdgeState.IsLoggedIn) 
-    //  {
-    //    if (IdologyState.IsValid)
-    //    {
-    //      // Route them to Home Page
-    //      Mediator.Send(new BlazorState.Features.Routing.RouteChangeAction { NewRoute = HomeModel.Route});
-    //    } else
-    //    {
-    //      // Route them to Idology Page
-    //      Mediator.Send(new BlazorState.Features.Routing.RouteChangeAction { NewRoute = IdologyModel.Route});
-    //    }
-    //  } else
-    //  {
-    //    Mediator.Send(new BlazorState.Features.Routing.RouteChangeAction { NewRoute = EdgeModel.Route });
-    //  }
-
-
-    //  base.OnInit();
-    //}
   }
 }

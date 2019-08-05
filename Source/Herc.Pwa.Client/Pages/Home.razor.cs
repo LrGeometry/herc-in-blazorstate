@@ -1,7 +1,7 @@
 ﻿namespace Herc.Pwa.Client.Pages
 {
   using Herc.Pwa.Client.Components;
-  public class HomeModel : BaseComponent
+  public class HomeBase : BaseComponent
   {
     public const string Route = "/";
   }

@@ -5,7 +5,7 @@ namespace Herc.Pwa.Client.Features.Edge.Components
   using Herc.Pwa.Client.Services;
   using Microsoft.AspNetCore.Components;
 
-  public class EdgeTransactionComponentModel : BaseComponent
+  public class EdgeTransactionComponentBase : BaseComponent
   {
 
     [Parameter] protected EdgeTransaction EdgeTransaction { get; set; }

@@ -4,7 +4,7 @@
   using System.Linq;
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge;
-  public class WalletListModel : BaseComponent
+  public class WalletListBase : BaseComponent
   {
     public List<EdgeCurrencyWallet> EdgeCurrencyWallets => EdgeCurrencyWalletsState.EdgeCurrencyWallets.Values.ToList();
   }

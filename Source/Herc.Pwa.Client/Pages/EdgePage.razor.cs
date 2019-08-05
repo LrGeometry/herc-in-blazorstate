@@ -5,11 +5,11 @@
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge;
 
-  public class EdgePageModel : BaseComponent
+  public class EdgePageBase : BaseComponent
   {
     public const string Route = "edge";
 
-    public EdgePageModel()
+    public EdgePageBase()
     {
       Console.WriteLine("EdgeModel constructor");
     }
