@@ -6,23 +6,18 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
   using BlazorState;
   using Herc.Pwa.Client.Features.Base;
   using Herc.Pwa.Client.Features.Edge.Dtos;
-  using Herc.Pwa.Client.Features.Edge.DTOs;
   using Herc.Pwa.Client.Features.Edge.EdgeAccount;
-  using MediatR;
   using Microsoft.JSInterop;
 
   public class ChangePinHandler : BaseHandler<ChangePinAction, EdgeAccountState>
   {
 
-        public ChangePinHandler(
-      IStore aStore,
-      IMediator aMediator) : base(aStore)
+    public ChangePinHandler( IStore aStore, IJSRuntime aJSRuntime ) : base(aStore)
     {
-      Mediator = aMediator;
+      JSRuntime = aJSRuntime;
     }
 
-    private IMediator Mediator { get; }
-
+    private IJSRuntime JSRuntime { get; }
 
     public override async Task<EdgeAccountState> Handle(ChangePinAction aChangePinAction, CancellationToken aCancellationToken)
     {
@@ -30,7 +25,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
 
       Console.WriteLine("Check if the Data Exists, NewPIn: {0}, EnablePin Login: {1}",  changePinDto.NewPin, changePinDto.EnableLogin);
       //not sure about this line
-      string changePinResults = await JSRuntime.Current.InvokeAsync<string>(EdgeInteropMethodNames.EdgeAccountInterop_ChangePin, changePinDto);
+      string changePinResults = await JSRuntime.InvokeAsync<string>(EdgeInteropMethodNames.EdgeAccountInterop_ChangePin, changePinDto);
       Console.WriteLine($"whatever Comes Back from ChangePin:", changePinResults);
 
       return await Task.FromResult(EdgeAccountState);

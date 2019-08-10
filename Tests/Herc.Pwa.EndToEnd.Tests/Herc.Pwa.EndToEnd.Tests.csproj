@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Fixie.Console" Version="$(FixieConsoleVersion)" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Fixie" Version="$(FixieVersion)" />
+    <PackageReference Include="Respawn" Version="$(RespawnVersion)" />
+    <PackageReference Include="Selenium.Support" Version="$(SeleniumSupportVersion)" />
+    <PackageReference Include="Selenium.WebDriver" Version="$(SeleniumSupportVersion)" />
+    <PackageReference Include="Shouldly" Version="$(ShouldlyVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\Herc.Pwa.Server\Herc.Pwa.Server.csproj" />
+  </ItemGroup>
+</Project>

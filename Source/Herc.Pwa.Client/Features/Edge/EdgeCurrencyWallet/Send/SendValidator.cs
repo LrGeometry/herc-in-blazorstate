@@ -1,5 +1,5 @@
 ﻿
-namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet
+namespace Herc.Pwa.Client.Features.Edge
 {
   using System.Numerics;
   using BlazorState;

@@ -5,8 +5,7 @@
   using Herc.Pwa.Client.Features.Application;
   using Herc.Pwa.Client.Features.Edge;
   using Herc.Pwa.Client.Features.Edge.EdgeAccount;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-  using Herc.Pwa.Client.Shared;
+  using Herc.Pwa.Client.Components.Shared;
   using Microsoft.AspNetCore.Components;
 
   /// <summary>

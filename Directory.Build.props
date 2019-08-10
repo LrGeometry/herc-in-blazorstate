@@ -1,0 +1,58 @@
+<!-- Intentionally empty to isolate templates projects from the rest of the repo -->
+<Project>
+  <!-- Set common properties regarding assembly information and nuget packages -->
+  
+  <PropertyGroup>
+    <Authors>Steven T. Cramer</Authors>
+    <Product>HercHome</Product>
+  </PropertyGroup>
+
+  <!-- Common compile parameters -->
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <!-- We use full (Windows PDBs) until cross platform support for source link will get better -->
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <TestProjectTargetFramework>netstandard2.0</TestProjectTargetFramework>
+  </PropertyGroup>
+
+  <!--Versions of packages used across the solution-->
+  <PropertyGroup Label="Package Versions">
+    <MicrosoftAspNetCoreVersion>3.0.0-preview7.19365.7</MicrosoftAspNetCoreVersion>
+    <MicrosoftAspNetCoreBlazorVersion>$(MicrosoftAspNetCoreVersion)</MicrosoftAspNetCoreBlazorVersion>
+    <MicrosoftAspNetCoreComponentsBrowserVersion>$(MicrosoftAspNetCoreVersion)</MicrosoftAspNetCoreComponentsBrowserVersion>
+    <MicrosoftAspNetCoreMvcNewtonsoftJsonVersion>$(MicrosoftAspNetCoreBlazorVersion)</MicrosoftAspNetCoreMvcNewtonsoftJsonVersion>
+    <MicrosoftAspNetCoreTestHostVersion>$(MicrosoftAspNetCoreVersion)</MicrosoftAspNetCoreTestHostVersion>
+    <MicrosoftExtensionsFileProvidersEmbeddedVersion>3.0.0-preview7.19362.4</MicrosoftExtensionsFileProvidersEmbeddedVersion>
+    <MicrosoftExtensionsLoggingAbstractionsVersion>3.0.0-preview7.19362.4</MicrosoftExtensionsLoggingAbstractionsVersion>
+    <MicrosoftSourceLinkGitHubVersion>1.0.0-beta2-19367-01</MicrosoftSourceLinkGitHubVersion>
+    <MicrosoftAspNetCoreMvcNewtonsoftJsonVersion>3.0.0-preview7.19365.7</MicrosoftAspNetCoreMvcNewtonsoftJsonVersion>
+    <MicrosoftEntityFrameworkCoreSqlServerVersion>3.0.0-preview7.19362.6</MicrosoftEntityFrameworkCoreSqlServerVersion>
+    <MicrosoftEntityFrameworkCoreToolsVersion>3.0.0-preview7.19362.6</MicrosoftEntityFrameworkCoreToolsVersion>
+
+    <AutoMapperVersion>8.1.1</AutoMapperVersion>
+    <AutoMapperExtensionsMicrosoftDependencyInjectionVersion>6.1.1</AutoMapperExtensionsMicrosoftDependencyInjectionVersion>
+    <BuildWebCompilerVersion>1.12.405</BuildWebCompilerVersion>
+    <BlazorExtensionsLoggingVersion>0.1.11</BlazorExtensionsLoggingVersion>
+    <BlazorStateVersion>1.0.0-preview7.19365.7-20190804-161342</BlazorStateVersion>
+    <FixieConsoleVersion>2.1.1</FixieConsoleVersion>
+    <FixieVersion>2.1.1</FixieVersion>
+    <FluentValidation>8.4.0</FluentValidation>
+    <MediatrExtensionsMicrosoftDependencyInjectionVersion>7.0.0</MediatrExtensionsMicrosoftDependencyInjectionVersion>
+    <MediatrVersion>7.0.0</MediatrVersion>
+    <MoqVersion>4.12.0</MoqVersion>
+    <NethereumUtilVersion>3.4.0</NethereumUtilVersion>
+    <NethereumWeb3VersionVersion>3.4.0</NethereumWeb3VersionVersion>
+    <NewtonsoftJsonVersion>12.0.2</NewtonsoftJsonVersion>
+    <RespawnVersion>3.2.0</RespawnVersion>
+    <ScrutorVersion>3.0.2</ScrutorVersion>
+    <SeleniumSupportVersion>3.141.0</SeleniumSupportVersion>
+    <SeleniumWebDriverVersion>3.141.0</SeleniumWebDriverVersion>
+    <ShouldlyVersion>3.0.2</ShouldlyVersion>
+  </PropertyGroup>
+</Project>

@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Herc.Pwa.Client.Features.Edge
 {
   using Herc.Pwa.Shared.Enumerations.FeeOption;
   using Herc.Pwa.Shared.Features.Base;

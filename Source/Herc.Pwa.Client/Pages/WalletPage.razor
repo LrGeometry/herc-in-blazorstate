@@ -1,0 +1,16 @@
+﻿@page "/wallet"
+@inherits WalletPageBase
+@using Herc.Pwa.Client.Features.Edge.Components.Wallet
+
+<div class="text-center">
+  @if(EdgeCurrencyWallet != null)
+  {
+    <Wallet EdgeCurrencyWallet="@EdgeCurrencyWallet" />  
+  }else
+  {
+    <div>No Wallet Yet</div>
+  }
+
+</div>
+<style>
+</style>

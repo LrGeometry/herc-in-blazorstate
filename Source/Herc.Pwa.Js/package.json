@@ -1,21 +1,24 @@
 {
   "name": "blazorherc",
   "version": "0.0.1",
-  "description": "",
+  "description": "The Javascript used with Wallet.",
+  "repository": "https://github.com/HERCone/herc-in-blazorstate.git",
+  "license": "Unlicense",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
+    "postinstall": "copy-edge-assets ../Herc.Pwa.Client/wwwroot/edge",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@types/emscripten": "0.0.31",
-    "ts-loader": "5.3.2",
-    "typescript": "3.2.2",
-    "webpack": "4.28.2",
-    "webpack-cli": "3.1.2"
+    "@types/emscripten": "0.0.34",
+    "ts-loader": "6.0.4",
+    "typescript": "3.5.3",
+    "webpack": "4.39.0",
+    "webpack-cli": "3.3.6"
   },
   "dependencies": {
     "edge-login-ui-web": "0.5.18",
-    "edge-core-js": "0.15.10"
+    "edge-core-js": "0.16.6"
   }
 }

@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.State
+﻿namespace Herc.Pwa.Client.Features.Edge
 {
   using System;
   using System.Collections.Generic;

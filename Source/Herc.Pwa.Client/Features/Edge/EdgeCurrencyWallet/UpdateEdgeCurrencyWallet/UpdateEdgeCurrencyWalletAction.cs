@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Herc.Pwa.Client.Features.Edge
 {
   using System.Collections.Generic;
   using Herc.Pwa.Client.Features.Edge.Dtos;
