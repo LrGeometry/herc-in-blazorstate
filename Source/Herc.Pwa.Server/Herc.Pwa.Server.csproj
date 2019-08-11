@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Services\Web3\Abis\Herc1155.json" />
-    <EmbeddedResource Include="Services\Web3\Abis\NftCreator.json"/>
+    <EmbeddedResource Include="Services\Web3\Abis\NftCreator.json" />
   </ItemGroup>
 
   <ItemGroup>

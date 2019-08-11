@@ -14,8 +14,8 @@
 
     public BalanceOfServiceHandler(Web3ContractManager web3ContractManager, EthereumSettings ethereumSettings)
     {
-      Web3ContractManager = web3ContractManager;
       EthereumSettings = ethereumSettings;
+      Web3ContractManager = web3ContractManager;
     }
 
     public async Task<BalanceOfServiceResponse> Handle(BalanceOfServiceRequest aBalanceOfServiceRequest, CancellationToken aCancellationToken)
