@@ -10,4 +10,8 @@
     <PackageReference Include="Nethereum.Web3" Version="$(NethereumWeb3Version)" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Constants\" />
+  </ItemGroup>
+
 </Project>

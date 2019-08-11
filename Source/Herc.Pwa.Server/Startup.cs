@@ -1,19 +1,19 @@
 ﻿namespace Herc.Pwa.Server
 {
-  using BlazorState;
   using AutoMapper;
+  using Herc.Pwa.Server.Configuration;
   using Herc.Pwa.Server.Data;
+  using Herc.Pwa.Server.Services.Web3;
   using MediatR;
   using Microsoft.AspNetCore.Builder;
   using Microsoft.AspNetCore.Hosting;
+  using Microsoft.AspNetCore.ResponseCompression;
   using Microsoft.EntityFrameworkCore;
   using Microsoft.Extensions.Configuration;
-  using Microsoft.AspNetCore.ResponseCompression;
   using Microsoft.Extensions.DependencyInjection;
   using Microsoft.Extensions.Hosting;
   using System.Linq;
   using System.Reflection;
-  using FluentValidation;
 
   //using Shared.Features.Conversion;
   //using Server.Services.CryptoCompare.SingleSymbolPrice;
@@ -21,7 +21,6 @@
 
   public class Startup
   {
-
     public Startup(IConfiguration aconfiguration)
     {
       Configuration = aconfiguration;
@@ -30,11 +29,12 @@
     public IConfiguration Configuration { get; }
 
     public void Configure
-    (
+        (
       IApplicationBuilder aApplicationBuilder,
       IWebHostEnvironment aWebHostEnvironment
     )
     {
+
       // unsure if below line is needed or not
       aApplicationBuilder.UseHttpsRedirection();
 
@@ -61,6 +61,8 @@
 
     public void ConfigureServices(IServiceCollection aServiceCollection)
     {
+      EthereumSettings ethereumSettings = Configuration.GetSection(nameof(EthereumSettings)).Get<EthereumSettings>();
+      aServiceCollection.AddSingleton(ethereumSettings);
       //   aServiceCollection.AddCors(aCorsOptions =>
       //   {
       //     aCorsOptions.AddPolicy("any",
@@ -87,7 +89,6 @@
 
       aServiceCollection.AddMvc();
 
-
       aServiceCollection.AddResponseCompression
       (
         aResponseCompressionOptions =>
@@ -108,6 +109,7 @@
       new Client.Startup().ConfigureServices(aServiceCollection);
 
       aServiceCollection.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
+      aServiceCollection.AddSingleton<Web3ContractManager>();
 
       //aServiceCollection.Scan
       //(
