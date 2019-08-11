@@ -1,18 +1,15 @@
-﻿using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using Herc.Pwa.Server.Data;
-using Herc.Pwa.Server.Entities;
-//using FakeItEasy;
-using MediatR;
-//using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Respawn;
-
-namespace Herc.Pwa.Server.Integration.Tests
+﻿namespace Herc.Pwa.Server.Integration.Tests
 {
+  using Herc.Pwa.Server.Data;
+  using Herc.Pwa.Server.Entities;
+  using MediatR;
+  using Microsoft.Extensions.Configuration;
+  using Microsoft.Extensions.DependencyInjection;
+  using Respawn;
+  using System;
+  using System.IO;
+  using System.Threading.Tasks;
+
   public class SliceFixture
   {
     private static readonly Checkpoint s_checkpoint;
@@ -39,7 +36,17 @@ namespace Herc.Pwa.Server.Integration.Tests
       };
     }
 
-    public static Task ResetCheckpoint() => s_checkpoint.Reset(s_configuration.GetConnectionString("HercPwaDbContext"));
+    public static Task ExecuteDbContextAsync(Func<HercPwaDbContext, Task> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>()));
+
+    public static Task ExecuteDbContextAsync(Func<HercPwaDbContext, IMediator, Task> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>(), sp.GetService<IMediator>()));
+
+    public static Task<T> ExecuteDbContextAsync<T>(Func<HercPwaDbContext, Task<T>> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>()));
+
+    public static Task<T> ExecuteDbContextAsync<T>(Func<HercPwaDbContext, IMediator, Task<T>> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>(), sp.GetService<IMediator>()));
 
     public static async Task ExecuteScopeAsync(Func<IServiceProvider, Task> action)
     {
@@ -86,18 +93,6 @@ namespace Herc.Pwa.Server.Integration.Tests
         }
       }
     }
-
-    public static Task ExecuteDbContextAsync(Func<HercPwaDbContext, Task> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>()));
-
-    public static Task ExecuteDbContextAsync(Func<HercPwaDbContext, IMediator, Task> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>(), sp.GetService<IMediator>()));
-
-    public static Task<T> ExecuteDbContextAsync<T>(Func<HercPwaDbContext, Task<T>> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>()));
-
-    public static Task<T> ExecuteDbContextAsync<T>(Func<HercPwaDbContext, IMediator, Task<T>> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>(), sp.GetService<IMediator>()));
 
     public static Task InsertAsync<T>(params T[] entities) where T : class =>
       ExecuteDbContextAsync
@@ -166,8 +161,10 @@ namespace Herc.Pwa.Server.Integration.Tests
       });
     }
 
+    public static Task ResetCheckpoint() => s_checkpoint.Reset(s_configuration.GetConnectionString("HercPwaDbContext"));
+
     // EF Core 3 FindAsync now returns ValueTask not a Task.
-	//public static Task<T> FindAsync<T>(int id)
+    //public static Task<T> FindAsync<T>(int id)
     //    where T : class, IEntity => ExecuteDbContextAsync(db => db.Set<T>().FindAsync(id));
 
     public static Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request)

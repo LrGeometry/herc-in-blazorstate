@@ -16,8 +16,8 @@
 
     public async Task<GetNftTemplateCountResponse> Handle(GetNftTemplateCountRequest aGetNftTemplateCountRequest, CancellationToken aCancellationToken)
     {
-      Function<GetNftTemplateCountRequest> function =
-        Web3ContractManager.NftCreatorContract.GetFunction<GetNftTemplateCountRequest>();
+      Contract nftCreatorContract = await Web3ContractManager.GetNftCreatorContract();
+      Function<GetNftTemplateCountRequest> function = nftCreatorContract.GetFunction<GetNftTemplateCountRequest>();
       var getNftTemplateCountResponse = new GetNftTemplateCountResponse
       {
         Count = await function.CallAsync<uint>()
