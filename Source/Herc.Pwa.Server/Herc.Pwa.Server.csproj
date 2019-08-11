@@ -6,6 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Services\Web3\Abis\HERC1155.json" />
+    <Content Remove="Services\Web3\Abis\NFTCreator.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Services\Web3\Abis\Herc1155.json" />
+    <EmbeddedResource Include="Services\Web3\Abis\NftCreator.json"/>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="$(AutoMapperVersion)" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="$(AutoMapperExtensionsMicrosoftDependencyInjectionVersion)" />
     <PackageReference Include="FluentValidation" Version="$(FluentValidation)" />
