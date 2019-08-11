@@ -12,10 +12,10 @@
     private readonly EthereumSettings EthereumSettings;
     private readonly Web3ContractManager Web3ContractManager;
 
-    public BalanceOfServiceHandler(Web3ContractManager web3ContractManager, EthereumSettings ethereumSettings)
+    public BalanceOfServiceHandler(Web3ContractManager aWeb3ContractManager, EthereumSettings aEthereumSettings)
     {
-      EthereumSettings = ethereumSettings;
-      Web3ContractManager = web3ContractManager;
+      EthereumSettings = aEthereumSettings;
+      Web3ContractManager = aWeb3ContractManager;
     }
 
     public async Task<BalanceOfServiceResponse> Handle(BalanceOfServiceRequest aBalanceOfServiceRequest, CancellationToken aCancellationToken)
