@@ -23,6 +23,39 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Herc.Pwa.Js", "Source\Herc.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Herc.Pwa.EndToEnd.Tests", "Tests\Herc.Pwa.EndToEnd.Tests\Herc.Pwa.EndToEnd.Tests.csproj", "{7FEFF4BA-A4FD-4CAE-A405-F562DE92AEF8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Features", "Features", "{951FC8A2-1D24-4231-949B-4D636B91A190}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WeatherForecast", "WeatherForecast", "{118E49B0-6FC6-443C-BA72-AEB3A988A42A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GetList", "GetList", "{94655E37-C3E6-49F8-A26F-E56BC7ECFD96}"
+	ProjectSection(SolutionItems) = preProject
+		Tests\Herc.Pwa.Server.Integration.Tests\Features\WeatherForecast\GetAll\GetAllWeatherForecastsTests.cs = Tests\Herc.Pwa.Server.Integration.Tests\Features\WeatherForecast\GetAll\GetAllWeatherForecastsTests.cs
+		Source\Herc.Pwa.Server\Features\WeatherForecast\GetList\GetWeatherForecastsController.cs = Source\Herc.Pwa.Server\Features\WeatherForecast\GetList\GetWeatherForecastsController.cs
+		Source\Herc.Pwa.Server\Features\WeatherForecast\GetList\GetWeatherForecastsHandler.cs = Source\Herc.Pwa.Server\Features\WeatherForecast\GetList\GetWeatherForecastsHandler.cs
+		Source\Herc.Pwa.Shared\Features\WeatherForecast\GetList\GetWeatherForecastsRequest.cs = Source\Herc.Pwa.Shared\Features\WeatherForecast\GetList\GetWeatherForecastsRequest.cs
+		Source\Herc.Pwa.Shared\Features\WeatherForecast\GetList\GetWeatherForecastsResponse.cs = Source\Herc.Pwa.Shared\Features\WeatherForecast\GetList\GetWeatherForecastsResponse.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web3", "Web3", "{18A19D59-1E40-4862-9509-FF6E97623F45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NftCreator", "NftCreator", "{D70ED0F4-1E27-427E-A34C-222B01E3C295}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GetNftTypes", "GetNftTypes", "{C68590EB-F261-4E00-A983-15CCC992C9C3}"
+	ProjectSection(SolutionItems) = preProject
+		Source\Herc.Pwa.Server\Features\Web3\NftCreator\GetNftTypes\GetNftTypesController.cs = Source\Herc.Pwa.Server\Features\Web3\NftCreator\GetNftTypes\GetNftTypesController.cs
+		Source\Herc.Pwa.Server\Features\Web3\NftCreator\GetNftTypes\GetNftTypesHandler.cs = Source\Herc.Pwa.Server\Features\Web3\NftCreator\GetNftTypes\GetNftTypesHandler.cs
+		Source\Herc.Pwa.Shared\Features\Web3\NftCreator\GetNftTypes\GetNftTypesRequest.cs = Source\Herc.Pwa.Shared\Features\Web3\NftCreator\GetNftTypes\GetNftTypesRequest.cs
+		Source\Herc.Pwa.Shared\Features\Web3\NftCreator\GetNftTypes\GetNftTypesResponse.cs = Source\Herc.Pwa.Shared\Features\Web3\NftCreator\GetNftTypes\GetNftTypesResponse.cs
+		Tests\Herc.Pwa.Server.Integration.Tests\Features\Web3\NftCreator\GetNftTypesTests.cs = Tests\Herc.Pwa.Server.Integration.Tests\Features\Web3\NftCreator\GetNftTypesTests.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{5A590DED-6B84-45DB-9F3C-24164807CE58}"
+	ProjectSection(SolutionItems) = preProject
+		Source\Herc.Pwa.Server\Services\Web3\NftCreator\GetNftTypes\GetNftTypesHandler.cs = Source\Herc.Pwa.Server\Services\Web3\NftCreator\GetNftTypes\GetNftTypesHandler.cs
+		Source\Herc.Pwa.Server\Services\Web3\NftCreator\GetNftTypes\GetNftTypesRequest.cs = Source\Herc.Pwa.Server\Services\Web3\NftCreator\GetNftTypes\GetNftTypesRequest.cs
+		Source\Herc.Pwa.Server\Services\Web3\NftCreator\GetNftTypes\GetNftTypesResponse.cs = Source\Herc.Pwa.Server\Services\Web3\NftCreator\GetNftTypes\GetNftTypesResponse.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +158,12 @@ Global
 		{0859C2E7-87FF-4E6A-AD5A-AB1AA2E4505F} = {171494B4-2196-44C6-B3F2-CE6BB2A1F0E1}
 		{714D7365-A43E-44D6-BF6F-2FFEE0289CDA} = {171494B4-2196-44C6-B3F2-CE6BB2A1F0E1}
 		{7FEFF4BA-A4FD-4CAE-A405-F562DE92AEF8} = {171494B4-2196-44C6-B3F2-CE6BB2A1F0E1}
+		{118E49B0-6FC6-443C-BA72-AEB3A988A42A} = {951FC8A2-1D24-4231-949B-4D636B91A190}
+		{94655E37-C3E6-49F8-A26F-E56BC7ECFD96} = {118E49B0-6FC6-443C-BA72-AEB3A988A42A}
+		{18A19D59-1E40-4862-9509-FF6E97623F45} = {951FC8A2-1D24-4231-949B-4D636B91A190}
+		{D70ED0F4-1E27-427E-A34C-222B01E3C295} = {18A19D59-1E40-4862-9509-FF6E97623F45}
+		{C68590EB-F261-4E00-A983-15CCC992C9C3} = {D70ED0F4-1E27-427E-A34C-222B01E3C295}
+		{5A590DED-6B84-45DB-9F3C-24164807CE58} = {C68590EB-F261-4E00-A983-15CCC992C9C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAE7846D-8856-4185-A0D2-9466E4458D71}
