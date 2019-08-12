@@ -21,7 +21,7 @@
     public async Task ShouldGetNft()
     {
       // Arrange
-      var getNftRequest = new GetNftTemplateRequest { NftId = 4 };
+      var getNftRequest = new GetNftTemplateRequest { NftTemplateId = 4 };
 
       // Act
       GetNftTemplateResponse response = await Mediator.Send(getNftRequest);
