@@ -1,7 +1,7 @@
 ﻿namespace Herc.Pwa.Shared.Features.AssetDefinition
 {
-  using System;
   using Herc.Pwa.Shared.Features.Base;
+  using System;
 
   /// <summary>
   /// Returns the AssetDefinitionDto if found
@@ -9,6 +9,7 @@
   public class GetAssetDefinitionResponse : BaseResponse
   {
     public GetAssetDefinitionResponse() { }
+
     public GetAssetDefinitionResponse(Guid aRequestId) : base(aRequestId) { }
 
     /// <summary>

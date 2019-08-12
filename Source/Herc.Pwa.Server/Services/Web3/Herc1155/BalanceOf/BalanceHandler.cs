@@ -7,24 +7,24 @@
   using System.Threading;
   using System.Threading.Tasks;
 
-  public class BalanceOfServiceHandler : IRequestHandler<BalanceOfServiceRequest, BalanceOfServiceResponse>
+  public class BalanceHandler : IRequestHandler<BalanceRequest, BalanceResponse>
   {
     private readonly EthereumSettings EthereumSettings;
     private readonly Web3ContractManager Web3ContractManager;
 
-    public BalanceOfServiceHandler(Web3ContractManager aWeb3ContractManager, EthereumSettings aEthereumSettings)
+    public BalanceHandler(Web3ContractManager aWeb3ContractManager, EthereumSettings aEthereumSettings)
     {
       EthereumSettings = aEthereumSettings;
       Web3ContractManager = aWeb3ContractManager;
     }
 
-    public async Task<BalanceOfServiceResponse> Handle(BalanceOfServiceRequest aBalanceOfServiceRequest, CancellationToken aCancellationToken)
+    public async Task<BalanceResponse> Handle(BalanceRequest aBalanceOfServiceRequest, CancellationToken aCancellationToken)
     {
       aBalanceOfServiceRequest.Owner = EthereumSettings.TestAccountAddress;
       Contract nftCreatorContract = await Web3ContractManager.GetNftCreatorContract();
-      Function<BalanceOfServiceRequest> function = nftCreatorContract.GetFunction<BalanceOfServiceRequest>();
+      Function<BalanceRequest> function = nftCreatorContract.GetFunction<BalanceRequest>();
 
-      return new BalanceOfServiceResponse
+      return new BalanceResponse
       {
         Balance = await function.CallAsync<int>(aBalanceOfServiceRequest)
       };

@@ -6,10 +6,8 @@ namespace Herc.Pwa.Shared.Features.Web3.NftCreator.GetNftTemplate
   public class GetNftTemplateResponse : BaseResponse
   {
     public GetNftTemplateResponse() { }
-    public GetNftTemplateResponse(Guid aRequestId)
-    {
-      RequestId = aRequestId;
-    }
+    public GetNftTemplateResponse(Guid aRequestId) : base(aRequestId) { }
+
     public NftTemplateDto NftTemplate { get; set; }
   }
 }

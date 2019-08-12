@@ -7,11 +7,7 @@ namespace Herc.Pwa.Shared.Features.Web3.NftCreator.GetNftTemplateCount
   {
     public GetNftTemplateCountResponse() { }
 
-    public GetNftTemplateCountResponse(Guid aRequestId)
-    {
-      
-      RequestId = aRequestId;
-    }
+    public GetNftTemplateCountResponse(Guid aRequestId) : base(aRequestId) { }
 
     public uint Count { get; set; }
   }

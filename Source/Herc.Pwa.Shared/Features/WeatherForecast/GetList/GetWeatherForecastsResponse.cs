@@ -11,12 +11,11 @@
     /// </summary>
     public GetWeatherForecastsResponse() { }
 
-    public GetWeatherForecastsResponse(Guid aRequestId)
+    public GetWeatherForecastsResponse(Guid aRequestId) : base(aRequestId)
     {
       WeatherForecasts = new List<WeatherForecastDto>();
-      RequestId = aRequestId;
     }
-
+    
     public List<WeatherForecastDto> WeatherForecasts { get; set; }
   }
 }

@@ -5,10 +5,10 @@
   using Nethereum.Contracts;
 
   [Function(name: "balanceOf")]
-  public class BalanceOfServiceRequest : FunctionMessage, IRequest<BalanceOfServiceResponse>
+  public class BalanceRequest : FunctionMessage, IRequest<BalanceResponse>
   {
     [Parameter(type: "uint", name: "id")]
-    public uint Id { get; set; }
+    public uint TemplateId { get; set; }
 
     [Parameter(type: "address", name: "owner", order: 1)]
     public string Owner { get; set; }
