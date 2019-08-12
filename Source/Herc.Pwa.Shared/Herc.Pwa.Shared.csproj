@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Constants\" />
+    <Folder Include="Features\Web3\Herc1155\VeiwMutableData\" />
   </ItemGroup>
 
 </Project>
