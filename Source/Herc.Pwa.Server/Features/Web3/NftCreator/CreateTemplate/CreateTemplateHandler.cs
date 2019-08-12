@@ -1,5 +1,6 @@
 ﻿namespace Herc.Pwa.Server.Features.Web3.NftCreator.CreateTemplate
 {
+  using Herc.Pwa.Shared.Features.Web3.NftCreator.CreateTemplate;
   using MediatR;
   using Nethereum.RPC.Eth.DTOs;
   using System.Threading;

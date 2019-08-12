@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Server.Features.Web3.NftCreator.CreateTemplate
+﻿namespace Herc.Pwa.Shared.Features.Web3.NftCreator.CreateTemplate
 {
   using Herc.Pwa.Shared.Features.Base;
   using MediatR;
