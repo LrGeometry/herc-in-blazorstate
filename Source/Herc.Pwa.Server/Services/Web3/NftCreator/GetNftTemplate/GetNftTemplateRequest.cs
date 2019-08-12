@@ -8,6 +8,6 @@
   public class GetNftTemplateRequest : FunctionMessage, IRequest<GetNftTemplateResponse>
   {
     [Parameter(type: "uint", name: "id", order: 1)]
-    public uint NftId { get; set; }
+    public uint NftTemplateId { get; set; }
   }
 }

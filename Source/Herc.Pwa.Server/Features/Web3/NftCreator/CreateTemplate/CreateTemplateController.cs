@@ -1,6 +1,7 @@
 ﻿namespace Herc.Pwa.Server.Features.Web3.NftCreator.CreateTemplate
 {
   using Herc.Pwa.Server.Features.Base;
+  using Herc.Pwa.Shared.Features.Web3.NftCreator.CreateTemplate;
   using Microsoft.AspNetCore.Mvc;
   using System.Threading.Tasks;
 
