@@ -7,8 +7,8 @@ namespace Herc.Pwa.Shared.Features.Web3.Herc1155.ViewTokenData
   {
     public const string Route = "api/viewTokenData";
 
-    public uint TokenIdToGet { get; set; }
+    public uint TokenId { get; set; }
 
-    public static string RouteFactory(int aId) => $"api/viewTokenData?TokenIdToGet={aId}";
+    public static string RouteFactory(int aId) => $"api/viewTokenData?TokenId={aId}";
   }
 }

@@ -25,7 +25,7 @@
       (
         new Services.ViewTokenDataServiceRequest
         {
-          ViewTokenId = aViewTokenDataRequest.TokenIdToGet
+          ViewTokenId = aViewTokenDataRequest.TokenId
         }
       );
 
