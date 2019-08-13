@@ -18,7 +18,7 @@
 
     public Dictionary<string, string> Balances { get; set; }
     public List<EdgeTransaction> EdgeTransactions { get; set; }
-    public string EncodedId => Id;
+    public string EncodedId => WebUtility.UrlEncode(Id);
     public string FiatCurrencyCode { get; set; }
     public string Id { get; set; }
     public Dictionary<string, string> Keys { get; set; }
